@@ -1,4 +1,4 @@
-package com.glean.dataLayer;
+package com.glean.guideBoxAccessLayaer;
 
 /**
  * Created by justi on 12/17/2016.
@@ -9,8 +9,6 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import java.io.IOException;
 
 /**
  * Created by justin on 10/30/2016.

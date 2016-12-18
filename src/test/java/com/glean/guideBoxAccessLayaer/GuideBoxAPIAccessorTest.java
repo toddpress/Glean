@@ -1,17 +1,8 @@
-package com.glean.dataLayer;
+package com.glean.guideBoxAccessLayaer;
 
 /**
  * Created by justi on 12/17/2016.
  */
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

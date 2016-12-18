@@ -1,10 +1,8 @@
-package com.glean.dataLayer;
+package com.glean.guideBoxAccessLayaer;
 
 /**
  * Created by justi on 12/17/2016.
  */
-
-import java.util.List;
 
 import java.util.List;
 
