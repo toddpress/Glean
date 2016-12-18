@@ -23,20 +23,20 @@ public class GleanController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public ResponseEntity<User> postUser(HttpSession session, @RequestBody User user) {
-        if (user.userName == null) {
+        if (user.getUserName() == null) {
             return new ResponseEntity<User>(HttpStatus.FORBIDDEN);
         }
-        User userFromDb = users.findByUserName(user.userName);
+        User userFromDb = users.findByUserName(user.getUserName());
         if (userFromDb == null) {
             users.save(user);
-            session.setAttribute("username", user.userName);
+            session.setAttribute("username", user.getUserName());
             System.out.println(users.findAll());
             return new ResponseEntity<User>(user, HttpStatus.OK);
         }
-        session.setAttribute("username", userFromDb.userName);
-        System.out.println(userFromDb.userName);
-        System.out.println(userFromDb.password);
-        System.out.println(userFromDb.id);
+        session.setAttribute("username", userFromDb.getUserName());
+        System.out.println(userFromDb.getUserName());
+        System.out.println(userFromDb.getPassword());
+        System.out.println(userFromDb.getId());
         return new ResponseEntity<User>(userFromDb, HttpStatus.OK);
     }
 }
