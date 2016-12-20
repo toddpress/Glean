@@ -1,6 +1,7 @@
 package com.glean.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class Show{
 
-    @Id
+    @Field(value = "id")
     private String id;
 
     private String title;
@@ -74,7 +75,7 @@ public class Show{
 
     private String artwork_304x171;
 
-    private String artwork_400x225;
+    private String artwork_448x252;
 
     private String artwork_608x342;
 
@@ -337,12 +338,12 @@ public class Show{
         this.artwork_304x171 = artwork_304x171;
     }
 
-    public String getArtwork_400x225() {
-        return artwork_400x225;
+    public String getArtwork_448x252() {
+        return artwork_448x252;
     }
 
-    public void setArtwork_400x225(String artwork_400x225) {
-        this.artwork_400x225 = artwork_400x225;
+    public void setArtwork_448x252(String artwork_448x225) {
+        this.artwork_448x252 = artwork_448x225;
     }
 
     public String getArtwork_608x342() {

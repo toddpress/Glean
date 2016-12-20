@@ -1,5 +1,7 @@
 package com.glean.entities;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -8,6 +10,7 @@ import java.util.Objects;
  */
 public abstract class Media {
 
+    @Field(value = "id")
     private String id;
 
     private String title;

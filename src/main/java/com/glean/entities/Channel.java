@@ -1,10 +1,14 @@
 package com.glean.entities;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 /**
  * Created by justi on 12/19/2016.
  */
 public class Channel {
 
+    @Field(value = "id")
     private String id;
 
     private String name;
@@ -17,7 +21,7 @@ public class Channel {
 
     private String artwork_304x171;
 
-    private String artwork_400x225;
+    private String artwork_448x252;
 
     private String artwork_608x342;
 
