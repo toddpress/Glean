@@ -12,13 +12,11 @@ public class DirectDocumentInserterTest {
 
 
     @Test
-    public void testGetShowByShowId() throws Exception {
-        System.out.println("Getting Show By ID: ");
+    public void testRawInsert() throws Exception {
         GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
         String jsonResult = accessor.getShowByShowId("rKb2Votbq91OfF7vWvJtcn9Q18QNAUiQ", "613");
-        System.out.println(jsonResult);
         DirectDocumentInserter inserter = new DirectDocumentInserter();
-        inserter.insertJSON(jsonResult);
+        inserter.insertJSON(jsonResult, "show");
     }
 
 }

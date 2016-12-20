@@ -16,11 +16,11 @@ public class DirectDocumentInserter {
 
     private String databaseName = "Glean";
 
-    public void insertJSON(String json){
+    public void insertJSON(String json, String collectionName){
 
         Mongo mongo = new Mongo(dataSourceURL);
         DB db = mongo.getDB(databaseName);
-        DBCollection collection = db.getCollection("dummyColl");
+        DBCollection collection = db.getCollection(collectionName);
         DBObject dbObject = (DBObject) JSON.parse(json);
         collection.insert(dbObject);
 
