@@ -1,112 +1,83 @@
 package com.glean.entities;
 
+import org.springframework.data.annotation.Id;
+
+import java.util.List;
+
 /**
  * Created by michaelplott on 12/17/16.
  */
-public class Show extends Media {
+public class Show{
 
-    private String content_type;
+    @Id
+    private String id;
 
-    private String episode_number;
+    private String title;
+
+    private List<String> alternate_titles;
+
+    private String status;
+
+    private String type;
+
+    private String container_show;
 
     private String first_aired;
 
-    private String season_number;
+    private String network;
 
-    private String show_id;
+    private List<Channel> channels;
 
-    private String thumbnail_208x117;
+    private String runtime;
 
-    private String thumbnail_304x171;
+    private List<Genre> genres;
 
-    private String thumbnail_400x225;
+    private List<Tag> tags;
 
-    private String thumbnail_608x342;
+    private List<Actor> cast;
 
-    public Show() {
-    }
+    private String overview;
 
-    public Show(String content_type, String episode_number, String first_aired, String season_number, String show_id, String thumbnail_208x117, String thumbnail_304x171, String thumbnail_400x225, String thumbnail_608x342) {
-        this.content_type = content_type;
-        this.episode_number = episode_number;
-        this.first_aired = first_aired;
-        this.season_number = season_number;
-        this.show_id = show_id;
-        this.thumbnail_208x117 = thumbnail_208x117;
-        this.thumbnail_304x171 = thumbnail_304x171;
-        this.thumbnail_400x225 = thumbnail_400x225;
-        this.thumbnail_608x342 = thumbnail_608x342;
-    }
+    private String air_day_of_week;
 
-    public String getContent_type() {
-        return content_type;
-    }
+    private String air_time;
 
-    public void setContent_type(String content_type) {
-        this.content_type = content_type;
-    }
+    private String rating;
 
-    public String getEpisode_number() {
-        return episode_number;
-    }
+    private String imdb_id;
 
-    public void setEpisode_number(String episode_number) {
-        this.episode_number = episode_number;
-    }
+    private String tvdb;
 
-    public String getFirst_aired() {
-        return first_aired;
-    }
+    private String themoviedb;
 
-    public void setFirst_aired(String first_aired) {
-        this.first_aired = first_aired;
-    }
+    private String freebase;
 
-    public String getSeason_number() {
-        return season_number;
-    }
+    private String tv_com;
 
-    public void setSeason_number(String season_number) {
-        this.season_number = season_number;
-    }
+    private String metacritic;
 
-    public String getShow_id() {
-        return show_id;
-    }
+    private String common_sense_media;
 
-    public void setShow_id(String show_id) {
-        this.show_id = show_id;
-    }
+    private String wikipedia_id;
 
-    public String getThumbnail_208x117() {
-        return thumbnail_208x117;
-    }
+    private TVRage tvrage;
 
-    public void setThumbnail_208x117(String thumbnail_208x117) {
-        this.thumbnail_208x117 = thumbnail_208x117;
-    }
+    private Social social;
 
-    public String getThumbnail_304x171() {
-        return thumbnail_304x171;
-    }
+    private String fanart;
 
-    public void setThumbnail_304x171(String thumbnail_304x171) {
-        this.thumbnail_304x171 = thumbnail_304x171;
-    }
+    private String poster;
 
-    public String getThumbnail_400x225() {
-        return thumbnail_400x225;
-    }
+    private String banner;
+    
+    private String artwork_208x117;
 
-    public void setThumbnail_400x225(String thumbnail_400x225) {
-        this.thumbnail_400x225 = thumbnail_400x225;
-    }
+    private String artwork_304x171;
 
-    public String getThumbnail_608x342() {
-        return thumbnail_608x342;
-    }
+    private String artwork_400x225;
 
-    public void setThumbnail_608x342(String thumbnail_608x342) {
-        this.thumbnail_608x342 = thumbnail_608x342;
-    }
+    private String artwork_608x342;
+
+    private String url;
+
 }
