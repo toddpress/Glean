@@ -5,6 +5,8 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.mongodb.util.JSON;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 /**
  * Created by justi on 12/17/2016.
@@ -16,7 +18,7 @@ public class DirectDocumentInserter {
 
     private String databaseName = "Glean";
 
-    public void insertJSON(String json, String collectionName){
+    public void insertJSON(String json, String collectionName) throws JSONException {
 
         Mongo mongo = new Mongo(dataSourceURL);
         DB db = mongo.getDB(databaseName);
@@ -24,5 +26,9 @@ public class DirectDocumentInserter {
         DBObject dbObject = (DBObject) JSON.parse(json);
         collection.insert(dbObject);
 
+        JSONObject object = new JSONObject(json);
+
     }
+
+
 }

@@ -1,12 +1,32 @@
 package com.glean.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 /**
  * Created by justi on 12/19/2016.
  */
 public class TVRage {
 
-    private String tvrage_id;
+    @Field(value = "tvrage_id")
+    @JsonProperty("tvrage_id")
+    private String tvrageId;
 
     private String link;
 
+    public String getTvrageId() {
+        return tvrageId;
+    }
+
+    public void setTvrageId(String tvrageId) {
+        this.tvrageId = tvrageId;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

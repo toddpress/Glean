@@ -1,5 +1,8 @@
 package com.glean.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -9,21 +12,27 @@ import java.util.List;
  * Created by michaelplott on 12/17/16.
  */
 public class Show{
-
     @Field(value = "id")
+    @JsonProperty("id")
     private String id;
 
     private String title;
 
-    private List<String> alternate_titles;
+    @Field(value = "alternate_titles")
+    @JsonProperty("alternate_titles")
+    private List<String> alternateTitles;
 
     private String status;
 
     private String type;
 
-    private String container_show;
+    @Field(value = "container_show")
+    @JsonProperty("container_show")
+    private String containerShow;
 
-    private String first_aired;
+    @Field(value = "first_aired")
+    @JsonProperty("first_aired")
+    private String firstAired;
 
     private String network;
 
@@ -39,13 +48,19 @@ public class Show{
 
     private String overview;
 
-    private String air_day_of_week;
+    @Field(value = "air_day_of_week")
+    @JsonProperty("air_day_of_week")
+    private String airDayOfWeek;
 
-    private String air_time;
+    @Field(value = "air_time")
+    @JsonProperty("air_time")
+    private String airTime;
 
     private String rating;
 
-    private String imdb_id;
+    @Field(value = "imdb_id")
+    @JsonProperty("imdb_id")
+    private String imdbId;
 
     private String tvdb;
 
@@ -53,13 +68,19 @@ public class Show{
 
     private String freebase;
 
-    private String tv_com;
+    @Field(value = "tv_com")
+    @JsonProperty("tv_com")
+    private String tvCom;
 
     private String metacritic;
 
-    private String common_sense_media;
+    @Field(value = "common_sense_media")
+    @JsonProperty("common_sense_media")
+    private String commonSenseMedia;
 
-    private String wikipedia_id;
+    @Field(value = "wikipedia_id")
+    @JsonProperty("wikipedia_id")
+    private String wikipediaId;
 
     private TVRage tvrage;
 
@@ -71,16 +92,23 @@ public class Show{
 
     private String banner;
 
-    private String artwork_208x117;
+    @Field(value = "artwork_208x117")
+    @JsonProperty("artwork_208x117")
+    private String artwork208x117;
 
-    private String artwork_304x171;
+    @Field(value = "artwork_304x171")
+    @JsonProperty("artwork_304x171")
+    private String artwork304x171;
 
-    private String artwork_448x252;
+    @Field(value = "artwork_448x252")
+    @JsonProperty("artwork_448x252")
+    private String artwork448x252;
 
-    private String artwork_608x342;
+    @Field(value = "artwork_608x342")
+    @JsonProperty("artwork_608x342")
+    private String artwork608x342;
 
     private String url;
-
 
     public String getId() {
         return id;
@@ -98,12 +126,12 @@ public class Show{
         this.title = title;
     }
 
-    public List<String> getAlternate_titles() {
-        return alternate_titles;
+    public List<String> getAlternateTitles() {
+        return alternateTitles;
     }
 
-    public void setAlternate_titles(List<String> alternate_titles) {
-        this.alternate_titles = alternate_titles;
+    public void setAlternateTitles(List<String> alternateTitles) {
+        this.alternateTitles = alternateTitles;
     }
 
     public String getStatus() {
@@ -122,20 +150,20 @@ public class Show{
         this.type = type;
     }
 
-    public String getContainer_show() {
-        return container_show;
+    public String getContainerShow() {
+        return containerShow;
     }
 
-    public void setContainer_show(String container_show) {
-        this.container_show = container_show;
+    public void setContainerShow(String containerShow) {
+        this.containerShow = containerShow;
     }
 
-    public String getFirst_aired() {
-        return first_aired;
+    public String getFirstAired() {
+        return firstAired;
     }
 
-    public void setFirst_aired(String first_aired) {
-        this.first_aired = first_aired;
+    public void setFirstAired(String firstAired) {
+        this.firstAired = firstAired;
     }
 
     public String getNetwork() {
@@ -194,20 +222,20 @@ public class Show{
         this.overview = overview;
     }
 
-    public String getAir_day_of_week() {
-        return air_day_of_week;
+    public String getAirDayOfWeek() {
+        return airDayOfWeek;
     }
 
-    public void setAir_day_of_week(String air_day_of_week) {
-        this.air_day_of_week = air_day_of_week;
+    public void setAirDayOfWeek(String airDayOfWeek) {
+        this.airDayOfWeek = airDayOfWeek;
     }
 
-    public String getAir_time() {
-        return air_time;
+    public String getAirTime() {
+        return airTime;
     }
 
-    public void setAir_time(String air_time) {
-        this.air_time = air_time;
+    public void setAirTime(String airTime) {
+        this.airTime = airTime;
     }
 
     public String getRating() {
@@ -218,12 +246,12 @@ public class Show{
         this.rating = rating;
     }
 
-    public String getImdb_id() {
-        return imdb_id;
+    public String getImdbId() {
+        return imdbId;
     }
 
-    public void setImdb_id(String imdb_id) {
-        this.imdb_id = imdb_id;
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
     }
 
     public String getTvdb() {
@@ -250,12 +278,12 @@ public class Show{
         this.freebase = freebase;
     }
 
-    public String getTv_com() {
-        return tv_com;
+    public String getTvCom() {
+        return tvCom;
     }
 
-    public void setTv_com(String tv_com) {
-        this.tv_com = tv_com;
+    public void setTvCom(String tvCom) {
+        this.tvCom = tvCom;
     }
 
     public String getMetacritic() {
@@ -266,20 +294,20 @@ public class Show{
         this.metacritic = metacritic;
     }
 
-    public String getCommon_sense_media() {
-        return common_sense_media;
+    public String getCommonSenseMedia() {
+        return commonSenseMedia;
     }
 
-    public void setCommon_sense_media(String common_sense_media) {
-        this.common_sense_media = common_sense_media;
+    public void setCommonSenseMedia(String commonSenseMedia) {
+        this.commonSenseMedia = commonSenseMedia;
     }
 
-    public String getWikipedia_id() {
-        return wikipedia_id;
+    public String getWikipediaId() {
+        return wikipediaId;
     }
 
-    public void setWikipedia_id(String wikipedia_id) {
-        this.wikipedia_id = wikipedia_id;
+    public void setWikipediaId(String wikipediaId) {
+        this.wikipediaId = wikipediaId;
     }
 
     public TVRage getTvrage() {
@@ -322,36 +350,36 @@ public class Show{
         this.banner = banner;
     }
 
-    public String getArtwork_208x117() {
-        return artwork_208x117;
+    public String getArtwork208x117() {
+        return artwork208x117;
     }
 
-    public void setArtwork_208x117(String artwork_208x117) {
-        this.artwork_208x117 = artwork_208x117;
+    public void setArtwork208x117(String artwork208x117) {
+        this.artwork208x117 = artwork208x117;
     }
 
-    public String getArtwork_304x171() {
-        return artwork_304x171;
+    public String getArtwork304x171() {
+        return artwork304x171;
     }
 
-    public void setArtwork_304x171(String artwork_304x171) {
-        this.artwork_304x171 = artwork_304x171;
+    public void setArtwork304x171(String artwork304x171) {
+        this.artwork304x171 = artwork304x171;
     }
 
-    public String getArtwork_448x252() {
-        return artwork_448x252;
+    public String getArtwork448x252() {
+        return artwork448x252;
     }
 
-    public void setArtwork_448x252(String artwork_448x225) {
-        this.artwork_448x252 = artwork_448x225;
+    public void setArtwork448x252(String artwork448x252) {
+        this.artwork448x252 = artwork448x252;
     }
 
-    public String getArtwork_608x342() {
-        return artwork_608x342;
+    public String getArtwork608x342() {
+        return artwork608x342;
     }
 
-    public void setArtwork_608x342(String artwork_608x342) {
-        this.artwork_608x342 = artwork_608x342;
+    public void setArtwork608x342(String artwork608x342) {
+        this.artwork608x342 = artwork608x342;
     }
 
     public String getUrl() {
