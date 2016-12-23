@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * Created by michaelplott on 12/17/16.
+ * Created by justi on 12/19/2016.
  */
-public class Genre {
+public class Tag {
 
     @Field(value = "id")
     @JsonProperty("id")
     private String id;
 
-    private String title;
+    private String tag;
 
     public String getId() {
         return id;
@@ -22,11 +22,11 @@ public class Genre {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTag() {
+        return tag;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }
