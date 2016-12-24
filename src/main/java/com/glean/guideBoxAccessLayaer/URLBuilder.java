@@ -21,6 +21,11 @@ public class URLBuilder {
     public final String EPISODES = "episodes/";
     public final String SHOW = "show/";
     public final String RELATED = "related/";
+    public final String SOURCES = "sources/";
+    public final String FREE = "free/";
+    public final String SUBSCRIPTION = "subscription/";
+    public final String ALL = "all/";
+    public final String CHRONOLOGICAL_ORDER = "?reverse_ordering=true";
 
     public String buildUrlToGetShowByTelevisionDatabaseShowId(String apiKey, String showId){
         StringBuilder strBuilder = new StringBuilder(BASE_URL);
@@ -58,7 +63,7 @@ public class URLBuilder {
         return strBuilder.toString();
     }
 
-    public String buildGetEpisodesByShowAndSeasonIdUrl(String apiKey, String showId, int seasonNumber, int startingEpisode, int episodeCount, List<String> sources, String platform, boolean includeLinks){
+    public String buildGetEpisodesByShowAndSeasonIdUrl(String apiKey, String showId, int seasonNumber, int startingEpisode, int episodeCount, List<String> sources, String platform, boolean includeLinks, boolean chronologicalOrder){
         StringBuilder strBuilder = new StringBuilder(BASE_URL);
         strBuilder.append(apiKey.concat("/"));
         strBuilder.append(SHOW);
@@ -70,6 +75,7 @@ public class URLBuilder {
         strBuilder.append(getCommaSeparatedStringFromList(sources).concat("/"));
         strBuilder.append(platform.concat("/"));
         strBuilder.append(Boolean.toString(includeLinks));
+        strBuilder.append(CHRONOLOGICAL_ORDER);
         return strBuilder.toString();
     }
 
@@ -81,6 +87,22 @@ public class URLBuilder {
         strBuilder.append(RELATED);
         return strBuilder.toString();
     }
+
+    public String buildGetSubscriptionSourcesUrl(String apiKey){
+        StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(SOURCES);
+        strBuilder.append(SUBSCRIPTION);
+        strBuilder.append(ALL);
+        return strBuilder.toString();
+    }
+    public String buildGetFreeSourcesUrl(String apiKey){
+        StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(SOURCES);
+        strBuilder.append(FREE);
+        strBuilder.append(ALL);
+        return strBuilder.toString();
+    }
+
 
     private String getCommaSeparatedStringFromList(List<String> list){
         StringBuilder strBuilder = new StringBuilder();

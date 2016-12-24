@@ -1,11 +1,9 @@
 package com.glean.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -109,6 +107,11 @@ public class Show{
     private String artwork608x342;
 
     private String url;
+
+    private List<Season> seasons;
+
+
+
 
     public String getId() {
         return id;
@@ -388,5 +391,20 @@ public class Show{
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
+    }
+
+    public void addSeason(Season season){
+        if (seasons == null){
+            seasons = new ArrayList<>();
+        }
+        seasons.add(season);
     }
 }

@@ -40,17 +40,37 @@ public class GuideBoxAPIAccessor {
         return urlCaller.makeCall(url);
     }
 
-    public String getEpisodesByShowAndSeasonId(String apiKey, String showId, int seasonNumber, int startingEpisode, int episodeCount, List<String> sources, String platform, boolean includedLinks) throws IOException{
+    public String getEpisodesByShowAndSeasonId(String apiKey, String showId, int seasonNumber, int startingEpisode, int episodeCount, List<String> sources, String platform, boolean includedLinks, boolean chronologicalOrder) throws IOException{
         URLBuilder urlBuilder = new URLBuilder();
         URLCaller urlCaller = new URLCaller();
-        String url = urlBuilder.buildGetEpisodesByShowAndSeasonIdUrl(apiKey, showId, seasonNumber, startingEpisode, episodeCount, sources, platform, includedLinks);
+        String url = urlBuilder.buildGetEpisodesByShowAndSeasonIdUrl(apiKey, showId, seasonNumber, startingEpisode, episodeCount, sources, platform, includedLinks, chronologicalOrder);
         return urlCaller.makeCall(url);
+    }
+
+    public String getEpisodesByShowAndSeasonId(String apiKey, String showId, int seasonNumber, int startingEpisode, int episodeCount, List<String> sources, String platform, boolean includedLinks) throws IOException{
+        return getEpisodesByShowAndSeasonId(apiKey, showId, seasonNumber, startingEpisode, episodeCount, sources, platform, includedLinks, true);
     }
 
     public String getSimilarShowById(String apiKey, String showId) throws IOException{
         URLBuilder urlBuilder = new URLBuilder();
         URLCaller urlCaller = new URLCaller();
         String url = urlBuilder.buildGetSimilarShowByIdUrl(apiKey, showId);
+        System.out.println(url);
+        return urlCaller.makeCall(url);
+    }
+
+    public String getFreeSources(String apiKey) throws IOException{
+        URLBuilder urlBuilder = new URLBuilder();
+        URLCaller urlCaller = new URLCaller();
+        String url = urlBuilder.buildGetFreeSourcesUrl(apiKey);
+        System.out.println(url);
+        return urlCaller.makeCall(url);
+    }
+
+    public String getSubscriptionSources(String apiKey) throws IOException{
+        URLBuilder urlBuilder = new URLBuilder();
+        URLCaller urlCaller = new URLCaller();
+        String url = urlBuilder.buildGetSubscriptionSourcesUrl(apiKey);
         return urlCaller.makeCall(url);
     }
 

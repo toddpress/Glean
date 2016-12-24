@@ -71,4 +71,22 @@ GuideBoxAPIAccessorTest {
         System.out.println(jsonResult);
     }
 
+    // TODO: 12/23/2016 fix this broken test: not sure what is wrong with the url format by guidebox doesn't recognize the format
+    @Test
+    public void getFreeSources() throws Exception {
+        System.out.println("Getting Free Sources");
+        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String jsonResult = accessor.getFreeSources(API_KEY);
+        System.out.println(jsonResult);
+    }
+
+    // TODO: 12/23/2016 fix this broken test: not sure what is wrong with the url format by guidebox doesn't recognize the format
+    @Test
+    public void getSubscriptionSources() throws Exception {
+        System.out.println("Getting Subscription Sources");
+        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String jsonResult = accessor.getSubscriptionSources(API_KEY);
+        System.out.println(jsonResult);
+    }
+
 }
