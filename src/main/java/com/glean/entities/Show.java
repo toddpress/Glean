@@ -10,7 +10,7 @@ import java.util.List;
  * Created by michaelplott on 12/17/16.
  */
 public class Show{
-    @Field(value = "id")
+    @Field(value = "_id")
     @JsonProperty("id")
     private String id;
 
