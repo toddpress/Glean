@@ -1,4 +1,4 @@
-package com.glean.guideBoxAccessLayaer;
+package com.glean.guideBoxAccessLayer;
 
 /**
  * Created by justi on 12/17/2016.
@@ -71,7 +71,6 @@ GuideBoxAPIAccessorTest {
         System.out.println(jsonResult);
     }
 
-    // TODO: 12/23/2016 fix this broken test: not sure what is wrong with the url format by guidebox doesn't recognize the format
     @Test
     public void getFreeSources() throws Exception {
         System.out.println("Getting Free Sources");
@@ -80,12 +79,35 @@ GuideBoxAPIAccessorTest {
         System.out.println(jsonResult);
     }
 
-    // TODO: 12/23/2016 fix this broken test: not sure what is wrong with the url format by guidebox doesn't recognize the format
     @Test
     public void getSubscriptionSources() throws Exception {
         System.out.println("Getting Subscription Sources");
         GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
         String jsonResult = accessor.getSubscriptionSources(API_KEY);
+        System.out.println(jsonResult);
+    }
+
+    @Test
+    public void testSearchForMovieByMovieTitle() throws Exception {
+        System.out.println("Searching For Movie By Title: ");
+        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String jsonResult = accessor.getMovieByTitle(API_KEY, "inception");
+        System.out.println(jsonResult);
+    }
+
+    @Test
+    public void testGetMovieByTheMovieDBId() throws Exception {
+        System.out.println("Getting Movie By TheMovieDB ID: ");
+        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String jsonResult = accessor.getMovieByTheMovieDBShowId(API_KEY, "110381");
+        System.out.println(jsonResult);
+    }
+
+    @Test
+    public void testGetMovieById() throws Exception {
+        System.out.println("Getting Movie By ID: ");
+        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String jsonResult = accessor.getMovieByMovieId(API_KEY, "6123");
         System.out.println(jsonResult);
     }
 

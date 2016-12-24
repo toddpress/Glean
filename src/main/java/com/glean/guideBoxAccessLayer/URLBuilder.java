@@ -1,4 +1,4 @@
-package com.glean.guideBoxAccessLayaer;
+package com.glean.guideBoxAccessLayer;
 
 /**
  * Created by justi on 12/17/2016.
@@ -17,9 +17,11 @@ public class URLBuilder {
     public final String TITLE = "title/";
     public final String ID = "id/";
     public final String TVDB = "tvdb/";
+    public final String THE_MOVIE_DB = "themoviedb/";
     public final String SEASONS = "seasons/";
     public final String EPISODES = "episodes/";
     public final String SHOW = "show/";
+    public final String MOVIE = "movie/";
     public final String RELATED = "related/";
     public final String SOURCES = "sources/";
     public final String FREE = "free/";
@@ -90,6 +92,7 @@ public class URLBuilder {
 
     public String buildGetSubscriptionSourcesUrl(String apiKey){
         StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(apiKey.concat("/"));
         strBuilder.append(SOURCES);
         strBuilder.append(SUBSCRIPTION);
         strBuilder.append(ALL);
@@ -97,9 +100,39 @@ public class URLBuilder {
     }
     public String buildGetFreeSourcesUrl(String apiKey){
         StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(apiKey.concat("/"));
         strBuilder.append(SOURCES);
         strBuilder.append(FREE);
         strBuilder.append(ALL);
+        return strBuilder.toString();
+    }
+
+    public String buildUrlToGetMovieByTheMovieDBShowId(String apiKey, String movieId){
+        StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(apiKey.concat("/"));
+        strBuilder.append(SEARCH);
+        strBuilder.append(MOVIE);
+        strBuilder.append(ID);
+        strBuilder.append(THE_MOVIE_DB);
+        strBuilder.append(movieId);
+        return strBuilder.toString();
+    }
+
+    public String buildUrlToGetMovieByMovieId(String apiKey, String movieId){
+        StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(apiKey.concat("/"));
+        strBuilder.append(MOVIE);
+        strBuilder.append(movieId.concat("/"));
+        return strBuilder.toString();
+    }
+
+    public String buildUrlToGetMovieByTitle(String apiKey, String movieName){
+        StringBuilder strBuilder = new StringBuilder(BASE_URL);
+        strBuilder.append(apiKey.concat("/"));
+        strBuilder.append(SEARCH);
+        strBuilder.append(MOVIE);
+        strBuilder.append(TITLE);
+        strBuilder.append(movieName);
         return strBuilder.toString();
     }
 

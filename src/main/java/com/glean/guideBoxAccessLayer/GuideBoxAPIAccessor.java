@@ -1,4 +1,4 @@
-package com.glean.guideBoxAccessLayaer;
+package com.glean.guideBoxAccessLayer;
 
 /**
  * Created by justi on 12/17/2016.
@@ -71,6 +71,27 @@ public class GuideBoxAPIAccessor {
         URLBuilder urlBuilder = new URLBuilder();
         URLCaller urlCaller = new URLCaller();
         String url = urlBuilder.buildGetSubscriptionSourcesUrl(apiKey);
+        return urlCaller.makeCall(url);
+    }
+
+    public String getMovieByTheMovieDBShowId(String apiKey, String movieId) throws IOException{
+        URLBuilder urlBuilder = new URLBuilder();
+        URLCaller urlCaller = new URLCaller();
+        String url = urlBuilder.buildUrlToGetMovieByTheMovieDBShowId(apiKey, movieId);
+        return urlCaller.makeCall(url);
+    }
+
+    public String getMovieByMovieId(String apiKey, String movieId) throws IOException{
+        URLBuilder urlBuilder = new URLBuilder();
+        URLCaller urlCaller = new URLCaller();
+        String url = urlBuilder.buildUrlToGetMovieByMovieId(apiKey, movieId);
+        return urlCaller.makeCall(url);
+    }
+
+    public String getMovieByTitle(String apiKey, String movieName) throws IOException{
+        URLBuilder urlBuilder = new URLBuilder();
+        URLCaller urlCaller = new URLCaller();
+        String url = urlBuilder.buildUrlToGetMovieByTitle(apiKey, movieName);
         return urlCaller.makeCall(url);
     }
 

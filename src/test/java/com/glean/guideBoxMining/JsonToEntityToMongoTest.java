@@ -5,7 +5,7 @@ import com.glean.entities.EpisodesWrapper;
 import com.glean.entities.Season;
 import com.glean.entities.SeasonsWrapper;
 import com.glean.entities.Show;
-import com.glean.guideBoxAccessLayaer.GuideBoxAPIAccessor;
+import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
 import com.glean.services.ShowRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
