@@ -61,7 +61,7 @@ public class Episode {
     @Field(value = "alternate_titles")
     @JsonProperty("alternate_titles")
     private List<String> alternateTitles;
-    
+
     private String overview;
 
     private String duration;
@@ -86,9 +86,21 @@ public class Episode {
     @JsonProperty("thumbnail_608x342")
     private String thumbnail608x342;
 
+    @Field(value = "free_web_sources")
+    @JsonProperty("free_web_sources")
+    private List<Source> freeWebSources;
+
+    @Field(value = "tv_everywhere_web_sources")
+    @JsonProperty("tv_everywhere_web_sources")
+    private List<Source> tvEverywhereWebSources;
+
     @Field(value = "subscription_web_sources")
     @JsonProperty("subscription_web_sources")
     private List<Source> subscriptionWebSources;
+
+    @Field(value = "purchase_web_sources")
+    @JsonProperty("purchase_web_sources")
+    private List<Source> purchaseWebSources;
 
 
     public String getId() {
@@ -267,11 +279,35 @@ public class Episode {
         this.thumbnail608x342 = thumbnail608x342;
     }
 
+    public List<Source> getFreeWebSources() {
+        return freeWebSources;
+    }
+
+    public void setFreeWebSources(List<Source> freeWebSources) {
+        this.freeWebSources = freeWebSources;
+    }
+
+    public List<Source> getTvEverywhereWebSources() {
+        return tvEverywhereWebSources;
+    }
+
+    public void setTvEverywhereWebSources(List<Source> tvEverywhereWebSources) {
+        this.tvEverywhereWebSources = tvEverywhereWebSources;
+    }
+
     public List<Source> getSubscriptionWebSources() {
         return subscriptionWebSources;
     }
 
     public void setSubscriptionWebSources(List<Source> subscriptionWebSources) {
         this.subscriptionWebSources = subscriptionWebSources;
+    }
+
+    public List<Source> getPurchaseWebSources() {
+        return purchaseWebSources;
+    }
+
+    public void setPurchaseWebSources(List<Source> purchaseWebSources) {
+        this.purchaseWebSources = purchaseWebSources;
     }
 }

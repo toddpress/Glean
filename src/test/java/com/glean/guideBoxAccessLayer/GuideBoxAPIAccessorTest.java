@@ -23,7 +23,7 @@ GuideBoxAPIAccessorTest {
     public void testSearchForShowByShowTitle() throws Exception {
         System.out.println("Searching For Show By Title: ");
         GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
-        String jsonResult = accessor.getShowByShowTitle(API_KEY, "orange is the new black");
+        String jsonResult = accessor.getShowByShowTitle(API_KEY, "the simpsons");
         System.out.println(jsonResult);
     }
 

@@ -40,14 +40,12 @@ public class JsonToEntityToMongoTest {
 
     @Test
     public void jsonToObjectThenCommitToDB() throws IOException {
-        String showId = "613";
+//        String showId = "613";
+        String showId = "65";
         GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
         ObjectMapper mapper = new ObjectMapper();
         List<String> sources = new ArrayList<String>();
-        sources.add("netflix");
-        sources.add("hulu_free");
-        sources.add("amazon_prime");
-        sources.add("free");
+        sources.add("all");
         Show show = mapper.readValue(accessor.getShowByShowId(API_KEY, showId), Show.class);
         SeasonsWrapper seasonsWrapper = mapper.readValue(accessor.getSeasonsByShowId(API_KEY, showId), SeasonsWrapper.class);
         for(Season season : seasonsWrapper.getResults()) {
@@ -61,6 +59,7 @@ public class JsonToEntityToMongoTest {
                     "web",
                     true),
                     EpisodesWrapper.class);
+            System.out.println(episodesWrapper.getResults());
             season.setEpisodes(episodesWrapper.getResults());
             show.addSeason(season);
         }
