@@ -24,10 +24,9 @@ public class Episode {
     @JsonProperty("is_shadow")
     private String isShadow;
 
-    // TODO: 12/23/2016 Could not find test data to base the object off of.  A new object will need to be created to map to this information
     @Field(value = "alternate_tvdb")
     @JsonProperty("alternate_tvdb")
-    private List<Object> alternateTvdb;
+    private List<String> alternateTvdb;
 
     @Field(value = "imdb_id")
     @JsonProperty("imdb_id")
@@ -59,10 +58,9 @@ public class Episode {
     @JsonProperty("original_title")
     private String originalTitle;
 
-    // TODO: 12/23/2016 Could not find test data to base the object off of.  A new object will need to be created to map to this information
     @Field(value = "alternate_titles")
     @JsonProperty("alternate_titles")
-    private List<Object> alternateTitles;
+    private List<String> alternateTitles;
     
     private String overview;
 
@@ -125,11 +123,11 @@ public class Episode {
         this.isShadow = isShadow;
     }
 
-    public List<Object> getAlternateTvdb() {
+    public List<String> getAlternateTvdb() {
         return alternateTvdb;
     }
 
-    public void setAlternateTvdb(List<Object> alternateTvdb) {
+    public void setAlternateTvdb(List<String> alternateTvdb) {
         this.alternateTvdb = alternateTvdb;
     }
 
@@ -205,11 +203,11 @@ public class Episode {
         this.originalTitle = originalTitle;
     }
 
-    public List<Object> getAlternateTitles() {
+    public List<String> getAlternateTitles() {
         return alternateTitles;
     }
 
-    public void setAlternateTitles(List<Object> alternateTitles) {
+    public void setAlternateTitles(List<String> alternateTitles) {
         this.alternateTitles = alternateTitles;
     }
 
