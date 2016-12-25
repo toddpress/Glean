@@ -55,7 +55,6 @@ public class GuideBoxAPIAccessor {
         URLBuilder urlBuilder = new URLBuilder();
         URLCaller urlCaller = new URLCaller();
         String url = urlBuilder.buildGetSimilarShowByIdUrl(apiKey, showId);
-        System.out.println(url);
         return urlCaller.makeCall(url);
     }
 
@@ -63,7 +62,6 @@ public class GuideBoxAPIAccessor {
         URLBuilder urlBuilder = new URLBuilder();
         URLCaller urlCaller = new URLCaller();
         String url = urlBuilder.buildGetFreeSourcesUrl(apiKey);
-        System.out.println(url);
         return urlCaller.makeCall(url);
     }
 

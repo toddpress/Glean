@@ -26,7 +26,7 @@ public class Episode {
 
     @Field(value = "alternate_tvdb")
     @JsonProperty("alternate_tvdb")
-    private List<String> alternateTvdb;
+    private List<AlternateTVDB> alternateTvdb;
 
     @Field(value = "imdb_id")
     @JsonProperty("imdb_id")
@@ -135,11 +135,11 @@ public class Episode {
         this.isShadow = isShadow;
     }
 
-    public List<String> getAlternateTvdb() {
+    public List<AlternateTVDB> getAlternateTvdb() {
         return alternateTvdb;
     }
 
-    public void setAlternateTvdb(List<String> alternateTvdb) {
+    public void setAlternateTvdb(List<AlternateTVDB> alternateTvdb) {
         this.alternateTvdb = alternateTvdb;
     }
 
