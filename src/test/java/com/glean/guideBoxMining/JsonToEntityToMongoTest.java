@@ -40,7 +40,7 @@ public class JsonToEntityToMongoTest {
 
     @Test
     public void jsonToObjectThenCommitToDB() throws IOException {
-//        String showId = "613";//archer
+        String showId = "613";//archer
 //        String showId = "65";//the simpsons
 //        String showId = "6959";//game of thrones
 //        String showId = "28164";//mr. robot
@@ -48,7 +48,7 @@ public class JsonToEntityToMongoTest {
 //        String showId = "8523";//breaking bad
 //        String showId = "621";//american horror story
 //        String showId = "13424";//sherlock
-        String showId = "1737";//the friends
+//        String showId = "1737";//the friends
 //        String showId = "16279";//rick and morty
 //        String showId = "13689";//star trek the next generation
 //        String showId = "405";//south park

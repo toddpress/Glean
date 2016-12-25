@@ -33,7 +33,7 @@ public class ShowEntityTest {
         System.out.println("||||||||||"+show.getTitle()+"||||||||||");
         List<Season> seasons = show.getSeasons();
         for (Season season : seasons){
-            System.out.println(season.getSeasonNumber());
+            System.out.println("Season "+season.getSeasonNumber());
             List<Episode> episodes = season.getEpisodes();
             for(Episode episode : episodes){
                 System.out.println("===>"+episode.getEpisodeNumber()+": "+episode.getTitle().replace("\n","")+" - "+episode.getOverview().replace("\n",""));
@@ -42,8 +42,4 @@ public class ShowEntityTest {
         long endingTime = System.currentTimeMillis() % 1000;
         System.out.println("|||||||||| Total Time in Milliseconds: " + (endingTime-startingTime)+"|||||||||||");
     }
-
-
-
-
 }
