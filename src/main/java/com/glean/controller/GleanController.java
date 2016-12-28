@@ -1,7 +1,7 @@
 package com.glean.controller;
 
 import com.glean.entities.User;
-import com.glean.services.UserRepo;
+import com.glean.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -3,16 +3,12 @@ package com.glean.entity;
 import com.glean.entities.Episode;
 import com.glean.entities.Season;
 import com.glean.entities.Show;
-import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
-import com.glean.services.ShowRepo;
+import com.glean.repository.ShowRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 /**

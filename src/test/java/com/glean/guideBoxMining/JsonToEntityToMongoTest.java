@@ -6,13 +6,13 @@ import com.glean.entities.Season;
 import com.glean.entities.SeasonsWrapper;
 import com.glean.entities.Show;
 import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
-import com.glean.services.ShowRepo;
+import com.glean.guideBoxAccessLayer.GuideBoxDataFormatter;
+import com.glean.repository.ShowRepo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
@@ -26,21 +26,21 @@ import java.util.List;
 @SpringBootTest
 public class JsonToEntityToMongoTest {
 
-    private final String API_KEY = "rKb2Votbq91OfF7vWvJtcn9Q18QNAUiQ";
+    @Value("${apikey}")
+    String apiKey;
 
     @Autowired
     private ShowRepo showRepo;
 
     @Autowired
-    private MongoOperations mongoOperations;
+    private GuideBoxAPIAccessor accessor;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    @Autowired GuideBoxDataFormatter formatter;
 
 
     @Test
     public void jsonToObjectThenCommitToDB() throws IOException {
-        String showId = "613";//archer
+//        String showId = "613";//archer
 //        String showId = "65";//the simpsons
 //        String showId = "6959";//game of thrones
 //        String showId = "28164";//mr. robot
@@ -52,15 +52,16 @@ public class JsonToEntityToMongoTest {
 //        String showId = "16279";//rick and morty
 //        String showId = "13689";//star trek the next generation
 //        String showId = "405";//south park
-        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
+        String showId = "2098";//arrested development
+
         ObjectMapper mapper = new ObjectMapper();
         List<String> sources = new ArrayList<String>();
         sources.add("all");
-        Show show = mapper.readValue(accessor.getShowByShowId(API_KEY, showId), Show.class);
-        SeasonsWrapper seasonsWrapper = mapper.readValue(accessor.getSeasonsByShowId(API_KEY, showId), SeasonsWrapper.class);
+        Show show = mapper.readValue(accessor.getShowByShowId(apiKey, showId), Show.class);
+        SeasonsWrapper seasonsWrapper = mapper.readValue(accessor.getSeasonsByShowId(apiKey, showId), SeasonsWrapper.class);
         for(Season season : seasonsWrapper.getResults()) {
             EpisodesWrapper episodesWrapper = mapper.readValue(accessor.getEpisodesByShowAndSeasonId(
-                    API_KEY,
+                    apiKey,
                     showId,
                     season.getSeasonNumber(),
                     0,
@@ -74,6 +75,11 @@ public class JsonToEntityToMongoTest {
             show.addSeason(season);
         }
         showRepo.save(show);
+    }
+
+    @Test
+    public void guideBoxDataFormatterTest() throws IOException {
+        formatter.assembleFullShowFromGuideBox("65");
     }
 
 }

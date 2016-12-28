@@ -1,4 +1,4 @@
-package com.glean.services;
+package com.glean.repository;
 
 import com.glean.entities.Show;
 import org.springframework.data.mongodb.repository.MongoRepository;

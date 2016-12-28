@@ -4,12 +4,11 @@ package com.glean.guideBoxAccessLayer;
  * Created by justi on 12/17/2016.
  */
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-/**
- * Created by justin on 10/30/2016.
- */
-
+@Service
 public class URLBuilder {
 
     public final String BASE_URL = "http://api-public.guidebox.com/v1.43/US/";
