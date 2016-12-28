@@ -1,8 +1,8 @@
-package com.glean.guideBoxAccessLayer;
+package com.glean.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.glean.entities.*;
-import com.glean.repository.ShowRepo;
+import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,10 +15,7 @@ import java.util.List;
  * Created by justi on 12/25/2016.
  */
 @Service
-public class GuideBoxDataFormatter {
-
-    @Autowired
-    private ShowRepo showRepo;
+public class GuideBoxDataAggregator {
 
     @Value("${spring.datasource.url}")
     String dataSource;
@@ -26,9 +23,13 @@ public class GuideBoxDataFormatter {
     @Value("${apikey}")
     String apiKey;
 
-    public void assembleFullShowFromGuideBox(String showId) throws IOException {
-        GuideBoxAPIAccessor accessor = new GuideBoxAPIAccessor();
-        ObjectMapper mapper = new ObjectMapper();
+    @Autowired
+    private GuideBoxAPIAccessor accessor;
+
+    @Autowired
+    private ObjectMapper mapper;
+
+    public Show assembleFullShowFromGuideBox(String showId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
         Show show = mapper.readValue(accessor.getShowByShowId(apiKey, showId), Show.class);
@@ -44,11 +45,10 @@ public class GuideBoxDataFormatter {
                     "web",
                     true),
                     EpisodesWrapper.class);
-            System.out.println(episodesWrapper.getResults());
             season.setEpisodes(episodesWrapper.getResults());
             show.addSeason(season);
         }
-        showRepo.save(show);
+        return show;
     }
 
 }
