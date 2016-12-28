@@ -14,10 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by justin on 11/1/2016.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class GuideBoxAPIAccessorTest {
