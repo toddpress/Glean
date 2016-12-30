@@ -92,14 +92,14 @@ public class GuideBoxAPIAccessorTest {
     @Test
     public void testGetMovieByTheMovieDBId() throws Exception {
         System.out.println("Getting Movie By TheMovieDB ID: ");
-        String jsonResult = accessor.getMovieByTheMovieDBShowId(apiKey, "110381");
+        String jsonResult = accessor.getMovieByTheMovieDBShowId(apiKey, "65412");
         System.out.println(jsonResult);
     }
 
     @Test
     public void testGetMovieById() throws Exception {
         System.out.println("Getting Movie By ID: ");
-        String jsonResult = accessor.getMovieByMovieId(apiKey, "6123");
+        String jsonResult = accessor.getMovieByMovieId(apiKey, "65412");
         System.out.println(jsonResult);
     }
 

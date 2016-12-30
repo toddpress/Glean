@@ -42,7 +42,7 @@ public class GuideBoxDataAggregator {
                     0,
                     100,
                     sources,
-                    "web",
+                    "all",
                     true),
                     EpisodesWrapper.class);
             season.setEpisodes(episodesWrapper.getResults());
@@ -50,5 +50,15 @@ public class GuideBoxDataAggregator {
         }
         return show;
     }
+
+
+    public Movie assembleMovieFromGuideBox(String movieId) throws IOException {
+        List<String> sources = new ArrayList<String>();
+        sources.add("all");
+        return mapper.readValue(accessor.getMovieByMovieId(apiKey, movieId), Movie.class);
+    }
+
+
+
 
 }
