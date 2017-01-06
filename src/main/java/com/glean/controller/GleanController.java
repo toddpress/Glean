@@ -1,5 +1,6 @@
 package com.glean.controller;
 
+import com.glean.repository.QueueRepo;
 import com.glean.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,9 @@ public class GleanController {
 
     @Autowired
     private UserRepo users;
+
+    @Autowired
+    private QueueRepo queues;
 
 //    @RequestMapping(path = "/login", method = RequestMethod.POST)
 //    public ResponseEntity<User> postUser(HttpSession session, @RequestBody User user) {
