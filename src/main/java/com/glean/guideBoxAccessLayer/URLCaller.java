@@ -1,4 +1,4 @@
-package com.glean.guideBoxAccessLayaer;
+package com.glean.guideBoxAccessLayer;
 
 /**
  * Created by justi on 12/17/2016.
@@ -9,10 +9,9 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.stereotype.Service;
 
-/**
- * Created by justin on 10/30/2016.
- */
+@Service
 public class URLCaller {
 
     OkHttpClient client = new OkHttpClient();
