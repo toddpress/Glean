@@ -50,8 +50,8 @@ public class ShowSetup {
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
         mongoTemplate.remove(new Query(), "show");
 
-        for (int i = 0; i < showId.length; i++) {
-            showRepo.save(dataAggregator.assembleFullShowFromGuideBox(showId[i]));
+        for (String aShowId : showId) {
+            showRepo.save(dataAggregator.assembleFullShowFromGuideBox(aShowId));
         }
 
 
