@@ -29,7 +29,8 @@ public class GuideBoxDataAggregator {
     @Autowired
     private ObjectMapper mapper;
 
-    public Show assembleFullShowFromGuideBox(String showId) throws IOException {
+    public Show
+    assembleFullShowFromGuideBox(String showId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
         Show show = mapper.readValue(accessor.getShowByShowId(apiKey, showId), Show.class);

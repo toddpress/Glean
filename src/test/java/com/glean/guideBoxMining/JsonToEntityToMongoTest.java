@@ -40,8 +40,8 @@ public class JsonToEntityToMongoTest {
     @Test
     public void getShowFromGuideBoxAndCommit() throws IOException {
 //        String showId = "613";//archer
-        String showId = "65";//the simpsons
-//        String showId = "6959";//game of thrones
+//        String showId = "65";//the simpsons
+        String showId = "6959";//game of thrones
 //        String showId = "28164";//mr. robot
 //        String showId = "15631";//orange is the new black
 //        String showId = "8523";//breaking bad

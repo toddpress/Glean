@@ -41,5 +41,5 @@ public class ThinMovie {
     private List<Tag> tags;
 
     private String duration;
-        
+
 }

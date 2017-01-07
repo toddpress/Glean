@@ -32,8 +32,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'org.springframework.data:spring-data-mongodb:1.9.5.RELEASE'
-    testCompile 'junit:junit:4.12'
 	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
-	runtime('org.springframework.boot:spring-boot-devtools')
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3'
+    testCompile 'junit:junit:4.12'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	runtime('org.springframework.boot:spring-boot-devtools')
 }
