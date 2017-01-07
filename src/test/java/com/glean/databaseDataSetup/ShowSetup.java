@@ -54,7 +54,6 @@ public class ShowSetup {
             showRepo.save(dataAggregator.assembleFullShowFromGuideBox(aShowId));
         }
 
-
     }
 
 }
