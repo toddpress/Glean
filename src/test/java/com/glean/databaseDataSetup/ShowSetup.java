@@ -31,29 +31,18 @@ public class ShowSetup {
     @Value("${spring.data.mongodb.database}")
     String databaseName;
 
+    @Value("${showid.module.elementToSearch}")
+    private String[] showId;
+
     @Test
     public void getAllShowsFromGuideBoxAndPrepopulate() throws IOException {
-//        "613";archer
-//        "65";the simpsons
-//        "6959";game of thrones
-//        "28164";mr. robot
-//        "15631";orange is the new black
-//        "8523";breaking bad
-//        "621";american horror story
-//        "13424";sherlock
-//        "1737";the friends
-//        "16279";rick and morty
-//        "13689";star trek the next generation
-//        "405";south park
-//        "2098";arrested development
-        String showId[] = {"613", "65", "6959", "28164", "15631", "8523", "621", "13424", "1737", "1627"};
+
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
         mongoTemplate.remove(new Query(), "show");
 
         for (String aShowId : showId) {
             showRepo.save(dataAggregator.assembleFullShowFromGuideBox(aShowId));
+            System.out.println("ShowID " + aShowId + " complete.");
         }
-
     }
-
 }
