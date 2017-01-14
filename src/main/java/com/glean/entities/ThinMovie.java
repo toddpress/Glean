@@ -16,6 +16,10 @@ public class ThinMovie {
 
     private String title;
 
+    @Field(value = "release_year")
+    @JsonProperty("release_year")
+    private String releaseYear;
+
     @Field(value = "release_date")
     @JsonProperty("release_date")
     private String releaseDate;
@@ -42,4 +46,100 @@ public class ThinMovie {
 
     private String duration;
 
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getReleaseYear() {
+        return releaseYear;
+    }
+
+    public void setReleaseYear(String releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public String getPoster120x171() {
+        return poster120x171;
+    }
+
+    public void setPoster120x171(String poster120x171) {
+        this.poster120x171 = poster120x171;
+    }
+
+    public String getPoster240x342() {
+        return poster240x342;
+    }
+
+    public void setPoster240x342(String poster240x342) {
+        this.poster240x342 = poster240x342;
+    }
+
+    public String getPoster400x570() {
+        return poster400x570;
+    }
+
+    public void setPoster400x570(String poster400x570) {
+        this.poster400x570 = poster400x570;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 }

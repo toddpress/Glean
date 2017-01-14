@@ -53,12 +53,12 @@ public class GuideBoxAPIAccessor {
         return urlCaller.makeCall(url);
     }
 
-    public String getFreeSources(String apiKey) throws IOException{
+    public String getFreeUserStreamSources(String apiKey) throws IOException{
         String url = urlBuilder.buildGetFreeSourcesUrl(apiKey);
         return urlCaller.makeCall(url);
     }
 
-    public String getSubscriptionSources(String apiKey) throws IOException{
+    public String getSubscriptionUserStreamSources(String apiKey) throws IOException{
         String url = urlBuilder.buildGetSubscriptionSourcesUrl(apiKey);
         return urlCaller.makeCall(url);
     }

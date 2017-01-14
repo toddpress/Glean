@@ -71,21 +71,21 @@ public class GuideBoxAPIAccessorTest {
     @Test
     public void getFreeSources() throws Exception {
         System.out.println("Getting Free Sources");
-        String jsonResult = accessor.getFreeSources(apiKey);
+        String jsonResult = accessor.getFreeUserStreamSources(apiKey);
         System.out.println(jsonResult);
     }
 
     @Test
     public void getSubscriptionSources() throws Exception {
         System.out.println("Getting Subscription Sources");
-        String jsonResult = accessor.getSubscriptionSources(apiKey);
+        String jsonResult = accessor.getSubscriptionUserStreamSources(apiKey);
         System.out.println(jsonResult);
     }
 
     @Test
     public void testSearchForMovieByMovieTitle() throws Exception {
         System.out.println("Searching For Movie By Title: ");
-        String jsonResult = accessor.getMovieByTitle(apiKey, "inception");
+        String jsonResult = accessor.getMovieByTitle(apiKey, "the revenant");
         System.out.println(jsonResult);
     }
 

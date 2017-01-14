@@ -1,7 +1,7 @@
 package com.glean.databaseDataSetup;
 
 import com.glean.repository.ShowRepo;
-import com.glean.utility.GuideBoxDataAggregator;
+import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.mongodb.MongoClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,17 +31,20 @@ public class ShowSetup {
     @Value("${spring.data.mongodb.database}")
     String databaseName;
 
+    @Value("${database.collection.show}")
+    String showCollection;
+
     @Value("${showid.module.elementToSearch}")
-    private String[] showId;
+    private String[] showIds;
 
     @Test
-    public void getAllShowsFromGuideBoxAndPrepopulate() throws IOException {
+    public void createTestDataShowsByScrapingGuideBox() throws IOException {
 
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
-        mongoTemplate.remove(new Query(), "show");
+        mongoTemplate.remove(new Query(), showCollection);
 
-        for (String aShowId : showId) {
-            showRepo.save(dataAggregator.assembleFullShowFromGuideBox(aShowId));
+        for (String aShowId : showIds) {
+            showRepo.save(dataAggregator.fetchAndAssembleFullShowFromGuideBox(aShowId));
             System.out.println("ShowID " + aShowId + " complete.");
         }
     }

@@ -142,11 +142,6 @@ public class Movie {
     @JsonProperty("purchase_android_sources")
     private List<Source> purchaseAndroidSources;
 
-    @Field(value = "other_sources")
-    @JsonProperty("other_sources")
-    private List<Source> otherSources;
-
-
     public String getId() {
         return id;
     }
@@ -467,11 +462,4 @@ public class Movie {
         this.purchaseAndroidSources = purchaseAndroidSources;
     }
 
-    public List<Source> getOtherSources() {
-        return otherSources;
-    }
-
-    public void setOtherSources(List<Source> otherSources) {
-        this.otherSources = otherSources;
-    }
 }

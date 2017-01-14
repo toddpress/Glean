@@ -1,5 +1,7 @@
 package com.glean.entities;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.List;
 
 /**
@@ -7,9 +9,12 @@ import java.util.List;
  */
 public class UserProfile {
 
-    User user;
+    @Field(value = "_id")
+    private String userId;
 
-    private List<Source> sources;
+    private String userName;
+
+    private List<UserStreamSource> userStreamSources;
 
     private List<ThinShow> availableShows;
 
@@ -20,20 +25,28 @@ public class UserProfile {
     private List<ThinMovie> wantedMovies;
 
 
-    public User getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public List<Source> getSources() {
-        return sources;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setSources(List<Source> sources) {
-        this.sources = sources;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<UserStreamSource> getUserStreamSources() {
+        return userStreamSources;
+    }
+
+    public void setUserStreamSources(List<UserStreamSource> userStreamSources) {
+        this.userStreamSources = userStreamSources;
     }
 
     public List<ThinShow> getAvailableShows() {

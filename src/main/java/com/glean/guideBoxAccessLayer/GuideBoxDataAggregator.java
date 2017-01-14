@@ -1,8 +1,7 @@
-package com.glean.utility;
+package com.glean.guideBoxAccessLayer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.glean.entities.*;
-import com.glean.guideBoxAccessLayer.GuideBoxAPIAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -29,8 +28,7 @@ public class GuideBoxDataAggregator {
     @Autowired
     private ObjectMapper mapper;
 
-    public Show
-    assembleFullShowFromGuideBox(String showId) throws IOException {
+    public Show fetchAndAssembleFullShowFromGuideBox(String showId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
         Show show = mapper.readValue(accessor.getShowByShowId(apiKey, showId), Show.class);
@@ -52,14 +50,16 @@ public class GuideBoxDataAggregator {
         return show;
     }
 
-
-    public Movie assembleMovieFromGuideBox(String movieId) throws IOException {
+    public Movie fetchAndAssembleMovieFromGuideBox(String movieId) throws IOException {
         List<String> sources = new ArrayList<String>();
         sources.add("all");
         return mapper.readValue(accessor.getMovieByMovieId(apiKey, movieId), Movie.class);
     }
 
-
-
+    public List<UserStreamSource> fetchAndAssembleFreeSources() throws IOException {
+        List<String> sources = new ArrayList<String>();
+        sources.add("free");
+        return mapper.readValue(accessor.getFreeUserStreamSources(apiKey), UserStreamSourceWrapper.class).getResults();
+    }
 
 }

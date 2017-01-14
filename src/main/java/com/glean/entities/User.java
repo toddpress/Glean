@@ -1,10 +1,13 @@
 package com.glean.entities;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 /**
  * Created by michaelplott on 12/17/16.
  */
 public class User {
 
+    @Field(value = "_id")
     private String id;
 
     private String userName;

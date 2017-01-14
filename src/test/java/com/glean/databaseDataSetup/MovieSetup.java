@@ -1,7 +1,7 @@
 package com.glean.databaseDataSetup;
 
 import com.glean.repository.MovieRepo;
-import com.glean.utility.GuideBoxDataAggregator;
+import com.glean.guideBoxAccessLayer.GuideBoxDataAggregator;
 import com.mongodb.MongoClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,17 +31,20 @@ public class MovieSetup {
     @Value("${spring.data.mongodb.database}")
     String databaseName;
 
+    @Value("${database.collection.movie}")
+    String movieCollection;
+
     @Value("${movieid.module.elementToSearch}")
-    private String[] movieId;
+    private String[] movieIds;
 
     @Test
-    public void getAllMoviesFromGuideBoxAndPrepopulate() throws IOException {
+    public void createTestDataMoviesByScrapingGuideBox() throws IOException {
 
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
-        mongoTemplate.remove(new Query(), "movie");
+        mongoTemplate.remove(new Query(), movieCollection);
 
-        for (String aMovieId : movieId) {
-            movieRepo.save(dataAggregator.assembleMovieFromGuideBox(aMovieId));
+        for (String aMovieId : movieIds) {
+            movieRepo.save(dataAggregator.fetchAndAssembleMovieFromGuideBox(aMovieId));
             System.out.println("MovieId " + aMovieId + " complete.");
         }
     }
