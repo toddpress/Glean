@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+//TODO This class is really stupid and just makes things more difficult to update... figure out a better way to do this... even hard coded strings in better than this
+//TODO I think that a String.format() could be used much more effectively inside the GuideBoxAPIAccessor class and this class should be removed.
 public class URLBuilder {
 
     public final String BASE_URL = "http://api-public.guidebox.com/v1.43/US/";
@@ -35,6 +37,7 @@ public class URLBuilder {
         strBuilder.append(ID);
         strBuilder.append(TVDB);
         strBuilder.append(showId);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -43,6 +46,7 @@ public class URLBuilder {
         strBuilder.append(apiKey.concat("/"));
         strBuilder.append(SHOW);
         strBuilder.append(showId.concat("/"));
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -52,6 +56,7 @@ public class URLBuilder {
         strBuilder.append(SEARCH);
         strBuilder.append(TITLE);
         strBuilder.append(showName);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -61,6 +66,7 @@ public class URLBuilder {
         strBuilder.append(SHOW);
         strBuilder.append(showId.concat("/"));
         strBuilder.append(SEASONS);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -77,6 +83,7 @@ public class URLBuilder {
         strBuilder.append(platform.concat("/"));
         strBuilder.append(Boolean.toString(includeLinks));
         strBuilder.append(CHRONOLOGICAL_ORDER);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -86,6 +93,7 @@ public class URLBuilder {
         strBuilder.append(SHOW);
         strBuilder.append(showId.concat("/"));
         strBuilder.append(RELATED);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -95,6 +103,7 @@ public class URLBuilder {
         strBuilder.append(SOURCES);
         strBuilder.append(SUBSCRIPTION);
         strBuilder.append(ALL);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
     public String buildGetFreeSourcesUrl(String apiKey){
@@ -103,6 +112,7 @@ public class URLBuilder {
         strBuilder.append(SOURCES);
         strBuilder.append(FREE);
         strBuilder.append(ALL);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -114,6 +124,7 @@ public class URLBuilder {
         strBuilder.append(ID);
         strBuilder.append(THE_MOVIE_DB);
         strBuilder.append(movieId);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -122,6 +133,7 @@ public class URLBuilder {
         strBuilder.append(apiKey.concat("/"));
         strBuilder.append(MOVIE);
         strBuilder.append(movieId.concat("/"));
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
@@ -132,6 +144,7 @@ public class URLBuilder {
         strBuilder.append(MOVIE);
         strBuilder.append(TITLE);
         strBuilder.append(movieName);
+        System.out.println(strBuilder.toString());
         return strBuilder.toString();
     }
 
