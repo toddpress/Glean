@@ -23,7 +23,7 @@ public class UserProfileEntityTest {
     @Test
     public void getMovieFromDBTest() throws Exception {
         long startingTime = System.currentTimeMillis() % 1000;
-        UserProfile userProfile = userProfileRepo.findByUserName("MILO");
+        UserProfile userProfile = userProfileRepo.findByUserName("Milo");
         System.out.println("||||||||||"+userProfile.getUserName()+"||||||||||");
         long endingTime = System.currentTimeMillis() % 1000;
         System.out.println("|||||||||| Total Time in Milliseconds: " + (endingTime-startingTime)+"|||||||||||");
