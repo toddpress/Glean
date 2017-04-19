@@ -43,9 +43,9 @@ public class ShowSetup {
         MongoTemplate mongoTemplate = new MongoTemplate(new SimpleMongoDbFactory(new MongoClient(), databaseName));
         mongoTemplate.remove(new Query(), showCollection);
 
-        for (String aShowId : showIds) {
-            showRepo.save(dataAggregator.fetchAndAssembleFullShowFromGuideBox(aShowId));
-            System.out.println("ShowID " + aShowId + " complete.");
+        for (String showId : showIds) {
+            showRepo.save(dataAggregator.fetchAndAssembleFullShowFromGuideBox(showId));
+            System.out.println("ShowID " + showId + " complete.");
         }
     }
 }
