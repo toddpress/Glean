@@ -3,6 +3,7 @@ package com.glean.entities;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -309,5 +310,14 @@ public class Episode {
 
     public void setPurchaseWebSources(List<Source> purchaseWebSources) {
         this.purchaseWebSources = purchaseWebSources;
+    }
+
+    public List<Source> getAllSources(){
+        List<Source> sources = new ArrayList<>();
+        sources.addAll(getFreeWebSources());
+        sources.addAll(getPurchaseWebSources());
+        sources.addAll(getSubscriptionWebSources());
+        sources.addAll(getTvEverywhereWebSources());
+        return sources;
     }
 }
