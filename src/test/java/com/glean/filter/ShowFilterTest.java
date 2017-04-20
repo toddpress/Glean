@@ -3,6 +3,7 @@ package com.glean.filter;
 import com.glean.entities.Show;
 import com.glean.entities.UserStreamSource;
 import com.glean.repository.ShowRepo;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,8 @@ public class ShowFilterTest {
         UserStreamSource userStreamSource = new UserStreamSource();
         userStreamSource.setSource("netflix");
         streamSources.add(userStreamSource);
-        ShowFilter.getInstance().filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, streamSources);
+        Show filteredShow = ShowFilter.getInstance().filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, streamSources);
+        Assert.assertNotNull(filteredShow.getSeasons().get(0).getEpisodes().get(0));
     }
 
 }
