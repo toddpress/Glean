@@ -27,6 +27,7 @@ public class ShowFilterTest {
 
     @Test
     public void testFilterShowEpisodesAndSourcesBasedOnUserStreamSources() throws Exception {
+        long startingTime = System.currentTimeMillis() % 1000;
         Show show = showRepo.findById("613");
         List<UserStreamSource> streamSources = new ArrayList<>();
         UserStreamSource userStreamSource = new UserStreamSource();
@@ -34,6 +35,9 @@ public class ShowFilterTest {
         streamSources.add(userStreamSource);
         Show filteredShow = ShowFilter.getInstance().filterShowSeasonsAndEpisodesBasedOnUserStreamSources(show, streamSources);
         Assert.assertNotNull(filteredShow.getSeasons().get(0).getEpisodes().get(0));
+
+        long endingTime = System.currentTimeMillis() % 1000;
+        System.out.println("|||||||||| Total Time in Milliseconds: " + (endingTime-startingTime)+"|||||||||||");
     }
 
 }
